@@ -69,6 +69,7 @@ public class DamageListener {
 			});
 			node.addListener(PlayerMoveEvent.class, event -> {
 				Player player = event.getPlayer();
+				if(player.getEntityMeta().isFlyingWithElytra()) return;
 				FallDamageHandler.handleFallDamage(
 						player, player.getPosition(),
 						event.getNewPosition(), event.isOnGround()
